@@ -15,4 +15,4 @@ It's currently under active development
 ![357544237-17f61ca5-6f28-424f-8254-a57d733096a6](https://github.com/user-attachments/assets/caaa25c1-409e-4738-a911-cc4e94f228ef)
 
 
-Email: quasicoder@protonmail.com    and    team@stoxswap.com 
+Email: quasicoder@protonmail.com      and      info@stoxswap.com 
