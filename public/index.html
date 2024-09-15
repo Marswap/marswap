@@ -1,0 +1,203 @@
+<html>
+<head>
+  <title>stoxswap</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="navbar">
+    <img alt="Uniswap logo" height="30" src="https://avatars.githubusercontent.com/u/83881790" width="30"/>
+    <a class="active" href="#">Trade</a>
+    <a href="#">Explore</a>
+    <a href="#">Pool</a>
+    <div class="search-bar">
+      <input placeholder="Search tokens and NFT collections" type="text"/>
+    </div>
+    <button class="connect-button" onclick="openWalletDialog()">Connect</button>
+    <i class="fas fa-cog settings-icon"></i>
+  </div>
+  <div class="main-content">
+    <div class="swap-container">
+      <div class="tabs">
+        <div class="active">Swap</div>
+        <div>Limit</div>
+        <div>Send</div>
+        <div>Buy</div>
+      </div>
+      <div class="input-group">
+        <input disabled="" placeholder="0" type="text"/>
+        <div class="token-select" onclick="openDialog()">
+          ETH
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      <div class="input-group">
+        <input disabled="" placeholder="0" type="text"/>
+        <div class="token-select" onclick="openDialog()">
+          Select token
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      <button class="swap-button" onclick="openWalletDialog()">Connect wallet</button>
+    </div>
+  </div>
+  <div class="overlay" onclick="closeDialog()"></div>
+  <div class="dialog-box">
+    <div class="coin" onclick="selectCoin('ETH', 'https://cryptologos.cc/logos/ethereum-eth-logo.png')">
+      <img alt="Ethereum logo" src="https://cryptologos.cc/logos/ethereum-eth-logo.png"/>
+      Ethereum (ETH)
+    </div>
+    <div class="coin" onclick="selectCoin('BTC', 'https://cryptologos.cc/logos/bitcoin-btc-logo.png')">
+      <img alt="Bitcoin logo" src="https://cryptologos.cc/logos/bitcoin-btc-logo.png"/>
+      Bitcoin (BTC)
+    </div>
+    <div class="coin" onclick="selectCoin('USDT', 'https://cryptologos.cc/logos/tether-usdt-logo.png')">
+      <img alt="Tether logo" src="https://cryptologos.cc/logos/tether-usdt-logo.png"/>
+      Tether (USDT)
+    </div>
+    <div class="coin" onclick="selectCoin('BNB', 'https://cryptologos.cc/logos/binance-coin-bnb-logo.png')">
+      <img alt="Binance Coin logo" src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png"/>
+      Binance Coin (BNB)
+    </div>
+    <div class="coin" onclick="selectCoin('TON', 'https://cryptologos.cc/logos/toncoin-ton-logo.png')">
+      <img alt="TON logo" src="https://cryptologos.cc/logos/toncoin-ton-logo.png"/>
+      The Open Network (TON)
+    </div>
+  </div>
+  <script>
+    function openDialog() {
+      document.querySelector('.overlay').style.display = 'block';
+      document.querySelector('.dialog-box').style.display = 'block';
+    }
+
+    function closeDialog() {
+      document.querySelector('.overlay').style.display = 'none';
+      document.querySelector('.dialog-box').style.display = 'none';
+    }
+
+    function selectCoin(coin, logo) {
+      const tokenSelects = document.querySelectorAll('.token-select');
+      tokenSelects.forEach(select => {
+        if (select.innerText.includes('Select token') || select.innerText.includes('ETH')) {
+          select.innerHTML = `<img src="${logo}" alt="${coin} logo" style="height: 20px; margin-right: 10px;"> ${coin} <i class="fas fa-chevron-down"></i>`;
+        }
+      });
+      closeDialog();
+    }
+
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+</body>
+</html>
