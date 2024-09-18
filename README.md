@@ -1,4 +1,4 @@
-# Stox-Swap
+# StoxSwap
 
 ```
 a multichain bridge portal to swap TON and Jetton tokens for ETH, ERC20, BTC and BRC20 tokens and vice versa.
